@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Modul extends Model
 {
-    protected $table = 'modul'; // pastikan sesuai nama tabel
+  protected $table = 'moduls';
     protected $fillable = [
         'kelas_id',       // FK → kelas.id
         'nama_modul',
         'deskripsi_modul',
+        'mahasiswa_id',   // FK → users.id (jika modul ini milik mahasiswa tertentu)
         'deadline',       // datetime
+    ];
+
+    protected $casts = [
+        'deadline' => 'datetime',
     ];
 
     /**

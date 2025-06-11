@@ -1,12 +1,12 @@
 <?php
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Mahasiswa\TugasPribadiController;
 use App\Http\Controllers\Mahasiswa\SubmissionController as MhsSubmissionController;
 use App\Http\Controllers\Mahasiswa\ProfilController as MhsProfilController;
 use App\Http\Controllers\Asdos\KelasController;
 use App\Http\Controllers\Asdos\ModulController;
 use App\Http\Controllers\Asdos\SubmissionReviewController;
+use App\Http\Controllers\Mahasiswa\TugasPribadiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,13 +46,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/submissions', [MhsSubmissionController::class, 'indexModules'])->name('submissions.index');
         Route::get('/submissions/upload/{modul}', [MhsSubmissionController::class, 'showUploadForm'])->name('submissions.upload');
         Route::post('/submissions/upload/{modul}', [MhsSubmissionController::class, 'store'])->name('submissions.store');
-        Route::get('/submissions/history', [MhsSubmissionController::class, 'history'])->name('submissions.history');
         Route::get('/submissions/{id}', [MhsSubmissionController::class, 'detail'])->name('submissions.detail');
         Route::delete('/submissions/{id}', [MhsSubmissionController::class, 'destroy'])->name('submissions.destroy');
-
-        // Profil
-        Route::get('/profile', [MhsProfilController::class, 'edit'])->name('profil.edit');
-        Route::put('/profile', [MhsProfilController::class, 'update'])->name('profil.update');
     });
 
     // Asdos routes

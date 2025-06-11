@@ -1,5 +1,4 @@
 <?php
-// app/Http/Controllers/Asdos/SubmissionReviewController.php
 
 namespace App\Http\Controllers\Asdos;
 
@@ -13,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class SubmissionReviewController extends Controller
 {
     /**
-     * Tampilkan semua submission yang statusnya 'Menunggu Nilai' 
+     * Tampilkan semua submission yang statusnya 'Menunggu Nilai'
      * untuk semua modul di kelas milik asdos.
      */
     public function waiting()
@@ -24,7 +23,7 @@ class SubmissionReviewController extends Controller
         $submissions = Submission::where('status_pengumpulan', 'Menunggu Nilai')
             ->whereIn('modul_id', function ($q) use ($asdosId) {
                 $q->select('id')
-                  ->from('modul')
+                  ->from('moduls')
                   ->whereIn('kelas_id', function ($qq) use ($asdosId) {
                       $qq->select('id')
                          ->from('kelas')
@@ -38,7 +37,7 @@ class SubmissionReviewController extends Controller
     }
 
     /**
-     * Tampilkan semua submission yang sudah diberi review 
+     * Tampilkan semua submission yang sudah diberi review
      * (status != 'Menunggu Nilai').
      */
     public function history()
@@ -48,7 +47,7 @@ class SubmissionReviewController extends Controller
         $submissions = Submission::where('status_pengumpulan', '!=', 'Menunggu Nilai')
             ->whereIn('modul_id', function ($q) use ($asdosId) {
                 $q->select('id')
-                  ->from('modul')
+                  ->from('moduls')
                   ->whereIn('kelas_id', function ($qq) use ($asdosId) {
                       $qq->select('id')
                          ->from('kelas')
