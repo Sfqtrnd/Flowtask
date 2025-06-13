@@ -14,9 +14,6 @@ class PersonalTask extends Model
         'status',       // enum: 'Belum Mulai','Sedang Berjalan','Selesai'
     ];
 
-    /**
-     * Relasi: Tugas pribadi ini milik satu Mahasiswa (User)
-     */
     public function mahasiswa()
     {
         return $this->belongsTo(User::class, 'mahasiswa_id');

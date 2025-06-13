@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kelas extends Model
 {
-    protected $table = 'kelas'; // pastikan sesuai nama tabel
+    protected $table = 'kelas'; 
     protected $fillable = [
         'nama_kelas',
         'semester',
-        'asdos_id', // FK ke users.id (role = 'asdos')
+        'asdos_id', 
     ];
 
     /**
-     * Relasi: Kelas dibuat oleh satu Asdos (User)
+     * Relasi: Kelas dibuat satu asdos
      */
     public function asdos()
     {

@@ -41,7 +41,7 @@ class DashboardController extends Controller
       $upcomingDeadlines = Submission::join('moduls', 'submissions.modul_id', '=', 'moduls.id')
         ->where('submissions.mahasiswa_id', $user->id)
         ->select([
-          'moduls.nama_modul as modul',  // Changed from modul.nama_modul to moduls.nama_modul
+          'moduls.nama_modul as modul',  
           'submissions.updated_at as tanggal_kirim',
           'submissions.status_pengumpulan as status'
         ])
@@ -51,7 +51,6 @@ class DashboardController extends Controller
         ->map(function ($row) {
           return [
             'modul' => $row->modul,
-            // jika ada kolom deadline di model Submission, ganti dengan $row->deadline
             'deadline' => $row->modul_deadline ?? null,
             'status' => $row->status,
             'tgl' => date('Y-m-d', strtotime($row->tanggal_kirim)),

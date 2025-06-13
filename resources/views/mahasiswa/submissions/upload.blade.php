@@ -33,7 +33,7 @@
 
     <div class="mb-4">
       <label for="file" class="block text-gray-700 font-medium mb-2">Pilih File</label>
-      <input type="file" id="file" name="file"
+      <input type="file" id="file" name="file" 
              class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
       <p class="text-xs text-gray-400 mt-1">Maks 10MB</p>
     </div>

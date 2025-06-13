@@ -67,8 +67,14 @@ class SubmissionController extends Controller
       'file' => 'required|file|max:10240', // max 10MB
     ]);
 
+    // Laporan_{nama_kelas}_{nama_modul}_{name user}_{timestamp}.pdf
+    $file         = $request->file('file');
+    $extension    = $file->getClientOriginalExtension();
+    $timestamp    = now()->format('Ymd_His');
+    $filename     = "Laporan_{$modul->kelas->nama_kelas}_{$modul->nama_modul}_" . Auth::user()->name . "_{$timestamp}.{$extension}";
+
     // Simpan file ke storage/app/public/submissions
-    $path = $request->file('file')->store('submissions', 'public');
+    $path = $file->storeAs('submissions', $filename, 'public'); 
 
     Submission::create([
       'modul_id' => $modul->id,

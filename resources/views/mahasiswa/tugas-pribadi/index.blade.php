@@ -55,10 +55,6 @@
   @else
     <div class="p-6 text-center text-gray-500">
       <p>Belum ada tugas pribadi.</p>
-      <a href="{{ route('mahasiswa.personal-tasks.create') }}"
-         class="mt-4 inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg">
-        <i class="bi bi-plus-circle mr-1"></i>Tambah Tugas
-      </a>
     </div>
   @endif
 </div>

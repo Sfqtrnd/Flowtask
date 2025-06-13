@@ -8,11 +8,11 @@ class Modul extends Model
 {
   protected $table = 'moduls';
     protected $fillable = [
-        'kelas_id',       // FK → kelas.id
+        'kelas_id',       // FK 
         'nama_modul',
         'deskripsi_modul',
-        'mahasiswa_id',   // FK → users.id (jika modul ini milik mahasiswa tertentu)
-        'deadline',       // datetime
+        'mahasiswa_id',   
+        'deadline',       
     ];
 
     protected $casts = [

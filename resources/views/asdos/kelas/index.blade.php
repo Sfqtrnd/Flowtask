@@ -75,10 +75,6 @@
   @else
     <div class="p-6 text-center text-gray-500">
       <p>Belum ada kelas praktikum.</p>
-      <a href="{{ route('asdos.kelas.create') }}"
-         class="mt-4 inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg">
-        <i class="bi bi-plus-circle mr-1"></i> Buat Kelas Baru
-      </a>
     </div>
   @endif
 </div>

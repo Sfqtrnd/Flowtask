@@ -46,7 +46,6 @@
     @endif
       </nav>
 
-      {{-- Settings & Logout --}}
       <div class="mt-auto mb-4 flex flex-col items-center space-y-4">
         <form action="{{ route('auth.logout') }}" method="POST">
           @csrf @method('DELETE')
@@ -71,9 +70,6 @@
       </main>
     </div>
     </div>
-
-  @yield('modals')
-  @yield('scripts')
 </body>
 
 </html>
